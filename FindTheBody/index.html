@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--
+        Proect-Name: FindTheBody
+        Author: Jaswinder Sidhu
+        Last Modified By: Jaswinder Sidhu
+        Date Last Modified: 27/05/2015
+        Program Description:   This program is a game about finding a dead body in the house.Player has different options to search the
+        different parts of the house. It depend on the player if he chooses the right way or not.
+        Revision History: It is the core page of the project at the beginning
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FindTheBody</title>
+    <!--  CSS Section  -->
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body onload="init();">
+
+    <div id="impress">
+
+        <!-- First level of the game or beginning of the game
+            User awakes in a house . He needs to find a dead body in this house.
+            He is given two options to search inside or outside the house.-->
+        <div id="start" class="step slide" data-x="1000">
+            <div class="slide-text">
+                <h1>
+                    You are in a house at ground floor.You donot anything know about this house.
+                    There is a dead body in this house. You have to find it . There is also a large garden around the house.
+                    You can search in the house if you want or you can go outside the house.
+                </h1>
+                <p><a href="#insideHouse">Search in House</a></p>
+                <p><a href="#outsideHouse">Go outside</a></p>
+            </div>
+        </div>
+        <!--  End of start slide -->
+        <!--First option on the second level
+            This page will be displayed if player choose to search inside the house
+            Here,he is given option to go first floor or basement-->
+        <div id="insideHouse" class="step slide" data-x="1500">
+            <div class="slide-text">
+                <h1>
+                    There seems somebody on the first floor. You can go there.
+                    There is also a door. May be, to the basement.
+                    You can go to the basement if you have courage in this lonely house.
+                </h1>
+                <p><a href="#firstFloor">First Floor</a></p>
+                <p><a href="#basement">Basement</a></p>
+            </div>
+        </div>
+        <!-- end of slide-->
+        <!--Second option on the second level
+            This slide will show up if player decides to search outside the house
+            Here,player can go to garage or he can keep searching the garden -->
+        <div id="outsideHouse" class="step slide" data-x="2000">
+            <div class="slide-text">
+                <h1>
+                    There is a large garden behind the house.There is a garage on one side and some trees and bushes on other side.
+                    You want to proceed in which way??
+                </h1>
+                <p>Keep <a href="#garden">searching</a>the garden</p>
+                <p><a href="#garage">Open</a> garage door</p>
+            </div>
+        </div>
+        <!-- end of slide-->
+        <!--First option on third level
+            At this point, player is in th room on first floor
+             He has again an option to look in bathroom or in the cupboard-->
+        <div id="firstFloor" class="step slide" data-x="2500">
+            <div class="slide-text">
+                <h1>
+                    All the things in the room are shattered here and there but there is nobody in the room.
+                    There is a bathroom attached to the room whose door is closed.
+                    The door of the cupboard is half open.May be,there is something important inside.
+                    Which one do you prefer...
+                </h1>
+                <p><a href="#bathroom">Open </a>the door of bathroom</p>
+                <p><a href="#cupboard">look </a>into the cupboard</p>
+            </div>
+        </div>
+        <!-- end of slide-->
+        <!--Second option on the third level
+            At this stage, player is in the basement of the house.
+             He can go back to the ground floor of the house or he can search the room
+             on other side in the basement-->
+        <div id="basement" class="step slide" data-x="3000">
+            <div class="slide-text">
+                <h1>
+                    You are in the basement of the house. There is nobody in the front room but
+                    some noise is coming from the the room on other side.There must be somebody
+                    in that room or on ground floor
+                    You can go back to have a look or you can walk into that room.
+                </h1>
+                <p><a href="#backToGroundFloor">Go Back</a></p>
+                <p><a href="#roomInBasement">Go </a>to that room</p>
+            </div>
+        </div>
+        <!-- end of slide-->
+        <!--Third option on third level
+            Here, Player is in the garden.
+            He has two options to look behind the bushes or search in the small room nearby
+         -->
+        <div id="garden" class="step slide" data-x="4000">
+            <div class="slide-text">
+                <h1>
+                    There is some movement in the bushes.
+                    There is also a small room near the bushes.
+                    It depends on you , which way to go..
+                </h1>
+                <p><a href="#bushes">Check</a>behind bushes</p>
+                <p><a href="#smallRoomInGarden">Open</a>the small room</p>
+            </div>
+        </div>
+        <!-- end of slide-->
+        <!--Fourth option  on third level
+        Player is in the garage and he has an option to look into the car
+         or look into a big box in the garage -->
+        <div id="garage" class="step slide" data-x="3500">
+            <div class="slide-text">
+                <h1>
+                    It is smelling badly here.There is also some blood on the floor.
+                    A car is parked in the garage .
+                    There is also a large strange box .
+                    You want to open the car or box???
+                </h1>
+                <p><a href="#largeBox">Open</a>the large box</p>
+                <p><a href="#car">Open</a>the car</p>
+            </div>
+        </div>
+        <!-- end of slide-->
+        <!-- First option on Fourth level
+             Player is shot dead by murderer-->
+        <div id="bathroom" class="step slide" data-x="4500">
+            <div class="slide-text">
+                <h1>
+                    Oh...You are dead now...
+                    It is murderer who was hiding in the bathroom.
+                </h1>
+                <div class="menu"><a href="#start">Start Over</a></div>
+            </div>
+        </div><!-- end of slide-->
+        <!--Second option on fourth level
+            Player finds an open bag of money in the cupboard but not the body-->
+        <div id="cupboard" class="step slide" data-x="5000">
+            <div class="slide-text">
+                <h1>You find an open bag of money.Killer must be searching for it in the room.</h1>
+                <div class="menu"><a href="#start">Start Over</a></div>
+            </div>
+        </div><!-- end of slide-->
+        <!-- Third option on fourth level
+             player wants to go back to ground floor but door of basement is locked -->
+        <div id="backToGroundFloor" class="step slide" data-x="5500">
+            <div class="slide-text">
+                <h1>
+                    Sorry.......the door is locked by someone and you are trapped now.
+
+                </h1>
+                <div class="menu"><a href="#start">Start Over</a></div>
+            </div>
+        </div><!-- end of slide-->
+        <!--Fourth option on fourth level
+            Player finds that noise was due to TV but there is nobody in the room -->
+        <div id="roomInBasement" class="step slide" data-x="6000">
+            <div class="slide-text">
+                <h1>
+                    Ah...
+                    It was just a TV .
+                </h1>
+                <div class="menu"><a href="#start">Start Over</a></div>
+            </div>
+        </div><!-- end of slide-->
+        <!--Fifth option on fourth level
+             A dog gets behind the player from the bushes-->
+        <div id="bushes" class="step slide" data-x="6500">
+            <div class="slide-text">
+                <h1>
+                    Run....its a dog.
+                </h1>
+                <div class="menu"><a href="#start">Start Over</a></div>
+            </div>
+        </div><!-- end of slide-->
+        <!--Sixth option on fourth level
+             Player is bitten by a snake in the small room-->
+        <div id="smallRoomInGarden" class="step slide" data-x="7000">
+            <div class="slide-text">
+                <h1>
+                    Its a snake ....
+                    You are gone now.
+                </h1>
+                <div class="menu"><a href="#start">Start Over</a></div>
+            </div>
+        </div><!-- end of slide-->
+        <!--Seventh option on fourth level
+            Player finds the killing weapons inside the box but
+            the body is not here -->
+        <div id="largeBox" class="step slide" data-x="7500">
+            <div class="slide-text">
+                <h1>Its just the killing weapon and some other evidences in the box.</h1>
+                <div class="menu"><a href="#start">Start Over</a></div>
+            </div>
+        </div><!-- end of slide-->
+        <!-- Winning position on fourth level
+            Player finds body in the trunk of the car -->
+        <div id="car" class="step slide" data-x="8000">
+            <div class="slide-text">
+                <h1>
+                    You got it.Body is here in the trunk of the car.
+                    You win.......
+                </h1>
+                <div class="menu"><a href="#start">Start Over</a></div>
+            </div>
+        </div><!-- end of slide-->
+
+
+    </div>
+    <!-- End of Impress-->
+    <!--   JavaScript Section  -->
+    <script src="scripts/lib/impress.js"></script>
+
+    <script src="scripts/game.js"></script>
+
+</body>
+</html>
